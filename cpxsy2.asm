@@ -470,6 +470,11 @@ IF hp125			;[MF]
 spdtbl  equ     0               ; SET BAUD not supported.
 sphtbl  equ     0
 ENDIF;hp125 [MF]
+
+; BUG: in iobyte case, sysspd was falling through to sysprt
+IF iobyt
+        ret			; no baud control for iobyt
+ENDIF;iobyt
 ;
 ;       This is the system-dependent SET PORT command.
 ;       HL contains the argument from the command table.
