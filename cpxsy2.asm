@@ -1355,9 +1355,8 @@ ENDIF;hp125 ;[MF]
 
 IF lasm and termin	; if no terminal, no need to link
 LINK CPXVDU.ASM
-ENDIF	; lasm and termin
-
 ovlend	EQU	$
+ENDIF	; lasm and termin
 
 IF lasm
 	END	; If m80 then this ignored

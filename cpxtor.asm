@@ -1226,4 +1226,4 @@ ENDIF	;lasm and not termin
 IF lasm; we want a terminal
 LINK CPXVDU.ASM
 ENDIF	;lasm
-
+	END

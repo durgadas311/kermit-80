@@ -372,18 +372,3 @@ ENDIF;SANYO
 ovlend	equ	$	; End of overlay
 
 	END
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
