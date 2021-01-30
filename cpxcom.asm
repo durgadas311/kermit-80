@@ -121,7 +121,7 @@ iniadr:	lhld	1		;get BIOS Warmstart-address
 	shld	blsout+1
 	lxi	d,10*3		; get printer status routine
 	dad	d
-	shld	bprtst
+	shld	bprtst+1	; BUG: was trashing bprtst JMP
 	ret			;And return
 
 bconst:	jmp	$-$		;Call BIOS directly (filled in by iniadr)
