@@ -24,15 +24,36 @@ H89_SRC = cpvh89.asm \
 	cpxcom.asm \
 	cpxswt.asm
 
+KER_SRC = cpsker.asm \
+	cpsdef.asm \
+	cpsmit.asm \
+	cpscom.asm \
+	cpspk1.asm \
+	cpspk2.asm \
+	cpsrem.asm \
+	cpsser.asm \
+	cpstt.asm \
+	cpscpm.asm \
+	cpswld.asm \
+	cpscmd.asm \
+	cpsutl.asm \
+	cpsdat.asm
+
 all:
 
 %.asm: ../%.asm
 	unix2dos -n $< $@
 
+cpsker.asm: ../cpsker.asm
+	sed	-e 's/^m80	EQU	false/m80	EQU	true/' \
+		-e 's/^lasm	EQU	true/lasm	EQU	false/' \
+		-e 's/$$//' \
+		$? >$@
+
 # TODO: test this...
-cpsker.com: cpsker.asm # ...others...
-	vcpm m80 cpsker=cpsker.asm
-	vcpm l80 /p:100,cpsker,cpsker/n/e
+cpsker.hex: $(KER_SRC)
+	vcpm m80 cpsker=cpsker.asm/l
+	vcpm l80 /p:100,cpsker,cpsker/n/x/e
 
 # Generic CP/M kermit-80
 cpvgen.asm: cpxtyp.asm

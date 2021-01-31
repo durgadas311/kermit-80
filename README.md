@@ -11,12 +11,14 @@ for more information on obtaining and setting up
 
 Currently, the only build targets are:
 
-* cpvgen.hex	Generic CP/M (iobyte)
-* cpvkpr.hex	Kaypro
-* cpvh89.hex	Heath/Zenith 89
+target | description
+-----------|----------------------------------
+cpsker.hex | Kermit system-independent module
+cpvgen.hex | Generic CP/M (iobyte)
+cpvkpr.hex | Kaypro
+cpvh89.hex | Heath/Zenith 89
 
-The plan is to add more, including the system-independent
-kermit module.
+The plan is to add more as needed.
 
 This build environment aims to avoid the need to
 manually edit cpxtyp.asm for each build performed.
