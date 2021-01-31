@@ -47,8 +47,7 @@ all:
 cpsker.asm: ../cpsker.asm
 	sed	-e 's/^m80	EQU	false/m80	EQU	true/' \
 		-e 's/^lasm	EQU	true/lasm	EQU	false/' \
-		-e 's/$$//' \
-		$? >$@
+		$? | unix2dos >$@
 
 # TODO: test this...
 cpsker.hex: $(KER_SRC)
