@@ -310,7 +310,7 @@ disc	EQU	FALSE		; Action Computer Enterprises "Discovery"
 				; Port B on an 83U user board (CRT required)
 genie	EQU	FALSE		;Eaca Genie III
 h8quad	EQU	FALSE		;[24] Entry for heath-8.  NOT same as H-89
-heath   EQU     FALSE		;For Heath/Zenith H89.
+heath	EQU	FALSE		;For Heath/Zenith H89.
 kpII	EQU	FALSE		;Kaypro-II
 horizon	EQU	FALSE		;[10] North Star Horizon (mother-board)
 				; (terminal required)
