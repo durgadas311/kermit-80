@@ -39,6 +39,12 @@ KER_SRC = cpsker.asm \
 	cpsutl.asm \
 	cpsdat.asm
 
+MZZ_SRC = cpvmzz.asm \
+	cpxcom.asm \
+	cpxswt.asm \
+	cpxmzz.asm \
+	cpxvdu.asm
+
 all:
 
 %.asm: ../%.asm
@@ -87,3 +93,15 @@ cpvh89.asm: cpxtyp.asm
 cpvh89.hex: $(H89_SRC) $(COM_SRC)
 	vcpm m80 cpvh89=cpvh89.asm/l
 	vcpm l80 /p:$(OVL_ADR),cpvh89,cpvh89/n/x/e
+
+# Mike_Z INS8251 system kermit-80
+cpvmzz.asm: cpxtyp.asm
+	sed	-e 's/^m80	EQU	FALSE/m80	EQU	TRUE/' \
+		-e 's/^lasm	EQU	TRUE/lasm	EQU	FALSE/' \
+		-e 's/^mzz	EQU	FALSE/mzz	EQU	TRUE/' \
+		-e 's/^crt	EQU	FALSE/crt	EQU	TRUE/' \
+		$? >$@
+
+cpvmzz.hex: $(MZZ_SRC) $(COM_SRC)
+	vcpm m80 cpvmzz=cpvmzz.asm/l
+	vcpm l80 /p:$(OVL_ADR),cpvmzz,cpvmzz/n/x/e

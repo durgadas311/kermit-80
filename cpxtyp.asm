@@ -363,6 +363,7 @@ hp125	EQU	FALSE		;[MF]HP-125 Business Assistant, 8-bit data
 				; for binary transfers on Data Comm 2)
 				; set VT52 TRUE
 mbee	EQU	FALSE		; Microbee Systems - Microbee 
+mzz	EQU	FALSE		; Mike_Z INS8251 system
 
 ;.. and for Micros, like the MDI, which have "terminals of choice", you must
 ;select one of these in addition to selecting the micro itself.
@@ -632,6 +633,12 @@ sysfam	SET	FALSE		; Were not doing the CPXSYS.ASM file
 .printx * sysfam set FALSE *
 ENDIF	; (genfam OR trsfam OR z80fam OR mbeefam) AND sysfam
 
+IF mzz
+cpuspd	SET	40		; TODO: real speed?
+termin	SET	TRUE		; need VDU, right?
+sysfam	SET	FALSE
+ENDIF; mzz
+
 IF sysfam
 .printx * sysfam set TRUE *
 ENDIF
@@ -715,6 +722,10 @@ ENDIF	;z80fam
 IF	beefam
 	INCLUDE CPXBEE.ASM
 ENDIF	;beefam
+
+IF	mzz
+	INCLUDE CPXMZZ.ASM
+ENDIF	;mzz
 
 IF termin			; any terminal selected?
         INCLUDE CPXVDU.ASM      ;[15] Just in case we need a VDU...
