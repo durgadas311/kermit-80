@@ -275,24 +275,24 @@ sysspd:
 ; [Toad Hall]
 
 ;
-;	Speed selection table for 614.4KHz INS8253
+;	Speed selection table for 614.4KHz INS8253 and 16x INS8251
 ;
 
 spdtbl: db	7	; num entries
 	db	4,'1200$'
-	dw	512
-	db	5,'19200$'
 	dw	32
+	db	5,'19200$'
+	dw	2
 	db	4,'2400$'
-	dw	256
-	db	5,'38400$'
 	dw	16
+	db	5,'38400$'
+	dw	1
 	db	4,'4800$'
-	dw	128
+	dw	8
 	db	3,'600$'
-	dw	1024
-	db	4,'9600$'
 	dw	64
+	db	4,'9600$'
+	dw	4
 
 sphtbl: db	cr,lf
 	db	'   600  1200  2400  4800  9600 19200 38400$'
