@@ -278,13 +278,17 @@ sysspd:
 ;	Speed selection table for 614.4KHz INS8253 and 16x INS8251
 ;
 
-spdtbl: db	7	; num entries
+spdtbl: db	9	; num entries
+	db	3,'110$'
+	dw	349
 	db	4,'1200$'
 	dw	32
 	db	5,'19200$'
 	dw	2
 	db	4,'2400$'
 	dw	16
+	db	3,'300$'
+	dw	128
 	db	5,'38400$'
 	dw	1
 	db	4,'4800$'
@@ -295,7 +299,7 @@ spdtbl: db	7	; num entries
 	dw	4
 
 sphtbl: db	cr,lf
-	db	'   600  1200  2400  4800  9600 19200 38400$'
+	db	'   110   300   600  1200  2400  4800  9600 19200 38400$'
 ;
 ;
 ;	This is the system-dependent SET PORT command.
