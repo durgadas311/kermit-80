@@ -35,3 +35,15 @@ CP/M commands, errors cannot be detected automatically.
 You will need to examine the output to ensure all went well.
 
 Bugfixes are also being applied as they are found.
+
+#### Build Requirements
+
+Building requires the 'vcpm', with M80, and 'unix2dos' commands.
+
+'unix2dos' is normally part of the "dos2unix" package on
+most Linux distributions.
+
+'vcpm' is obtained and setup as described in https://github.com/durgadas311/cpnet-z80.
+M80 (MicroSoft MACRO-80 Assembler and Linker) is required to be installed
+in the virtual A: drive of 'vcpm' (rather, one of the drives configured in the search path).
+One source for this package is https://www.cpm80.com/.
